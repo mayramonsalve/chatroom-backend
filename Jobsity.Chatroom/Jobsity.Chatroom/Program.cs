@@ -1,10 +1,19 @@
-using JobsityChatroom.DTOs;
-using JobsityChatroom.Hubs;
-using JobsityChatroom.Middlewares;
+using Jobsity.Chatroom.DTOs;
+using Jobsity.Chatroom.Hubs;
+using Jobsity.Chatroom.RabbitMQ;
+using Jobsity.Common.Extensions;
+using Jobsity.Common.Middlewares;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables()
+    .AddUserSecrets<Program>()
+    .AddCommandLine(args)
+    .Build();
 
 builder.Services.AddCors(options =>
 {
@@ -23,7 +32,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
 builder.Services.AddSingleton<IDictionary<string, UserConnection>>(opts => new Dictionary<string, UserConnection>());
-
+builder.Services.SetUpRabbitMQ(builder.Configuration);
+builder.Services.AddHostedService<Receiver>();
 
 var app = builder.Build();
 

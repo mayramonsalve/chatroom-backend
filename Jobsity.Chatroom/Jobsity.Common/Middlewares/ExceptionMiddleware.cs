@@ -1,7 +1,7 @@
-﻿using JobsityChatroom.Models;
+﻿using Jobsity.Common.Models;
 using System.Net;
 
-namespace JobsityChatroom.Middlewares
+namespace Jobsity.Common.Middlewares
 {
     public class ExceptionMiddleware
     {

@@ -1,4 +1,4 @@
-﻿namespace JobsityChatroom.DTOs
+﻿namespace Jobsity.Chatroom.DTOs
 {
     public class UserConnection
     {

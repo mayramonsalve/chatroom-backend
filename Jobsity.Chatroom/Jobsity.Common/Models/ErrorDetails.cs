@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace JobsityChatroom.Models
+namespace Jobsity.Common.Models
 {
     public class ErrorDetails
     {

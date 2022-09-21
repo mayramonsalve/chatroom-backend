@@ -30,6 +30,70 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Mayra\\Source\\Repos\\chatroom-backend\\Jobsity.Chatroom\\Jobsity.Common\\Jobsity.Common.csproj": {
+                "projectPath": "C:\\Users\\Mayra\\Source\\Repos\\chatroom-backend\\Jobsity.Chatroom\\Jobsity.Common\\Jobsity.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Mayra\\Source\\Repos\\chatroom-backend\\Jobsity.Chatroom\\Jobsity.Common\\Jobsity.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mayra\\Source\\Repos\\chatroom-backend\\Jobsity.Chatroom\\Jobsity.Common\\Jobsity.Common.csproj",
+        "projectName": "Jobsity.Common",
+        "projectPath": "C:\\Users\\Mayra\\Source\\Repos\\chatroom-backend\\Jobsity.Chatroom\\Jobsity.Common\\Jobsity.Common.csproj",
+        "packagesPath": "C:\\Users\\Mayra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mayra\\Source\\Repos\\chatroom-backend\\Jobsity.Chatroom\\Jobsity.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Mayra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -42,6 +106,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

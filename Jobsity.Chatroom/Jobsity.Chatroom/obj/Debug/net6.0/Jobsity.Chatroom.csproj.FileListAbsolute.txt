@@ -19,3 +19,7 @@ C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Chatroom\o
 C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Chatroom\obj\Debug\net6.0\Jobsity.Chatroom.pdb
 C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Chatroom\obj\Debug\net6.0\Jobsity.Chatroom.genruntimeconfig.cache
 C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Chatroom\obj\Debug\net6.0\ref\Jobsity.Chatroom.dll
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Chatroom\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Chatroom\bin\Debug\net6.0\Jobsity.Common.dll
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Chatroom\bin\Debug\net6.0\Jobsity.Common.pdb
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Chatroom\obj\Debug\net6.0\Jobsity.Chatroom.csproj.CopyComplete

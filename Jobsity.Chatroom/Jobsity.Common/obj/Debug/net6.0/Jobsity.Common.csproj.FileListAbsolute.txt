@@ -1,0 +1,15 @@
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\bin\Debug\net6.0\Jobsity.Common.deps.json
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\bin\Debug\net6.0\Jobsity.Common.dll
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\bin\Debug\net6.0\Jobsity.Common.pdb
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\Jobsity.Common.csproj.AssemblyReference.cache
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\Jobsity.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\Jobsity.Common.AssemblyInfoInputs.cache
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\Jobsity.Common.AssemblyInfo.cs
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\Jobsity.Common.csproj.CoreCompileInputs.cache
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\scopedcss\bundle\Jobsity.Common.styles.css
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\Jobsity.Common.dll
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\refint\Jobsity.Common.dll
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\Jobsity.Common.pdb
+C:\Users\Mayra\Source\Repos\chatroom-backend\Jobsity.Chatroom\Jobsity.Common\obj\Debug\net6.0\ref\Jobsity.Common.dll

@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "h7v4JxsbwUq8palimwOncfOBGwePxpOOSzAu+Uz+oew=",
+  "Hash": "da1QPUd87ARr9qj6R4BvpSQO1XXqTmGhFGXkgKvRGws=",
   "Source": "Jobsity.Chatroom",
   "BasePath": "_content/Jobsity.Chatroom",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Mayra\\Source\\Repos\\chatroom-backend\\Jobsity.Chatroom\\Jobsity.Common\\Jobsity.Common.csproj",
+      "Version": 2,
+      "Source": "Jobsity.Common",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": []
 }

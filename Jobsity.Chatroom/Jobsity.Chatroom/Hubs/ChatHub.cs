@@ -1,7 +1,7 @@
-﻿using JobsityChatroom.DTOs;
+﻿using Jobsity.Chatroom.DTOs;
 using Microsoft.AspNetCore.SignalR;
 
-namespace JobsityChatroom.Hubs
+namespace Jobsity.Chatroom.Hubs
 {
     public class ChatHub : Hub
     {
@@ -47,6 +47,11 @@ namespace JobsityChatroom.Hubs
         {
             var users = _connections.Values.Where(c => c.Room == room).Select(c => c.User);
             return Clients.Group(room).SendAsync("UsersInRoom", users);
+        }
+
+        public async Task Welcome()
+        {
+            await Clients.All.SendAsync("Welcome", "Welcome!");
         }
     }
 }
