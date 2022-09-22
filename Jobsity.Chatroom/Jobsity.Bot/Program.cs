@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
                             .AllowAnyHeader()
                             .AllowAnyMethod()
                             .AllowCredentials()
-                            .WithOrigins("http://localhost:3000/") //", http://www.contoso.com"); ;
+                            .WithOrigins("http://localhost:3000/", "http://localhost:3001/", "http://localhost:3002/")
                             .SetIsOriginAllowed((host) => true);
                       });
 });
@@ -36,7 +36,7 @@ builder.Services.AddSingleton<Sender>();
 var app = builder.Build();
 
 app.UseCors(MyAllowSpecificOrigins);
-app.UseMiddleware<ExceptionMiddleware>();
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.UseAuthorization();
 app.MapControllers();

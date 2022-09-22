@@ -1,9 +1,9 @@
 using Jobsity.Chatroom.DTOs;
 using Jobsity.Chatroom.Hubs;
+using Jobsity.Chatroom.Services;
 using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using Moq;
-using System.Dynamic;
 using HubCallerContext = Microsoft.AspNetCore.SignalR.HubCallerContext;
 using IClientProxy = Microsoft.AspNetCore.SignalR.IClientProxy;
 
@@ -13,7 +13,9 @@ namespace Jobsity.Tests
     {
         ChatHub _hub;
         IDictionary<string, UserConnection> _connections;
-        Mock<IClientContract> _mockGroups;
+        IList<string> _users;
+        IMessageService _messageService;
+        Mock<IGroupManager> _mockGroups;
         Mock<IHubCallerClients> _mockClients;
         Mock<IClientProxy> _mockClientProxy;
         Mock<HubCallerContext> _mockClientContext;
@@ -22,17 +24,30 @@ namespace Jobsity.Tests
         {
             string connectionId = Guid.NewGuid().ToString();
             _connections = new Dictionary<string, UserConnection>() { { connectionId,
-                                                                        new UserConnection() { User = "Test User", Room = "Test Room" } 
+                                                                        new UserConnection() { User = "TestUser", Room = "TestRoom" } 
                                                                     }  };
+            _users = new List<string>() { "Jobsity", "TestUser", "Mayra" };
+            _messageService = null;
+            List<string> groupIds = new List<string>()
+            {
+                Guid.NewGuid().ToString(),
+                Guid.NewGuid().ToString(),
+            };
+            List<string> clientIds = new List<string>() { "1", "2", "3" };
+
             _mockClients = new Mock<IHubCallerClients>();
-            _mockGroups = new Mock<IClientContract>();
+            _mockGroups = new Mock<IGroupManager>();// new Mock<IClientContract>();
             _mockClientProxy = new Mock<IClientProxy>();
             _mockClientContext = new Mock<HubCallerContext>();
-            _mockGroups.Setup(g => g.SendMessage(It.IsAny<UserMessage>())).Verifiable();
             _mockClients.Setup(c => c.Group("Test Group")).Returns(_mockClientProxy.Object);
             _mockClientContext.Setup(c => c.ConnectionId).Returns(connectionId);
 
-            _hub = new ChatHub(_connections)
+            //_mockClients.Setup(client => client.All).Returns(_mockClientProxy.Object);
+            //_mockClients.Setup(client => client.OthersInGroup(It.IsIn<string>(groupIds))).Returns(_mockClientProxy.Object);
+            //_mockGroups.Setup(group => group.AddToGroupAsync(It.IsIn<string>(clientIds), It.IsIn<string>(groupIds), new System.Threading.CancellationToken())).Returns(Task.FromResult(true));
+            //_mockGroups.Setup(group => group.RemoveFromGroupAsync(It.IsIn<string>(clientIds), It.IsIn<string>(groupIds), new System.Threading.CancellationToken())).Returns(Task.FromResult(true));
+
+            _hub = new ChatHub(_messageService, _connections, _users)
             {
                 Clients = _mockClients.Object,
                 Context = _mockClientContext.Object,
@@ -46,35 +61,35 @@ namespace Jobsity.Tests
             void SendMessage(UserMessage userMessage);
         }
 
-        //[Fact]
-        //public async Task Hub_SendMessage_ShouldReturn1Message()
-        //{
-        //    await _hub.SendMessage(new UserMessage() { Message = "Test Message", Date = DateTime.Now });
+        [Fact]
+        public async Task Hub_SendMessage_ShouldReturn1Message()
+        {
+            await _hub.SendMessage(new UserMessage() { Message = "Test Message", Date = DateTime.Now });
 
-        //    _mockClients.Verify(clients => clients.All, Times.Once);
+            _mockClients.Verify(clients => clients.All, Times.Once);
 
-        //    _mockClientProxy.Verify(
-        //        clientProxy => clientProxy.SendCoreAsync(
-        //            "ReceiveMessage",
-        //            It.Is<object[]>(o => o != null && o.Length == 1),
-        //            default(CancellationToken)),
-        //        Times.Once);
-        //}
+            _mockClientProxy.Verify(
+                clientProxy => clientProxy.SendCoreAsync(
+                    "ReceiveMessage",
+                    It.Is<object[]>(o => o != null && o.Length == 1),
+                    default(CancellationToken)),
+                Times.Once);
+        }
 
-        //[Fact]
-        //public async Task Hub_SendUsers_ShouldReturn1User()
-        //{
-        //    await _hub.SendUsers("Test Room");
+        [Fact]
+        public async Task Hub_SendUsers_ShouldReturn1User()
+        {
+            await _hub.SendUsers("Test Room");
 
-        //    _mockClients.Verify(clients => clients.All, Times.Once);
+            _mockClients.Verify(clients => clients.All, Times.Once);
 
-        //    _mockClientProxy.Verify(
-        //        clientProxy => clientProxy.SendCoreAsync(
-        //            "UsersInRoom",
-        //            It.Is<object[]>(o => o != null && o.Length == 1),
-        //            default(CancellationToken)),
-        //        Times.Once);
-        //}
+            _mockClientProxy.Verify(
+                clientProxy => clientProxy.SendCoreAsync(
+                    "UsersInRoom",
+                    It.Is<object[]>(o => o != null && o.Length == 1),
+                    default(CancellationToken)),
+                Times.Once);
+        }
 
         [Fact]
         public async Task Welcome_ShouldReturn1Message1()
@@ -85,7 +100,7 @@ namespace Jobsity.Tests
 
             mockClients.Setup(clients => clients.All).Returns(mockClientProxy.Object);
 
-            ChatHub chatHub = new ChatHub(null)
+            ChatHub chatHub = new ChatHub(null, null, null)
             {
                 Clients = mockClients.Object
             };
