@@ -1,4 +1,5 @@
-﻿using Jobsity.Chatroom.Models;
+﻿using Jobsity.Chatroom.Interfaces;
+using Jobsity.Chatroom.Models;
 
 namespace Jobsity.Chatroom.Services
 {

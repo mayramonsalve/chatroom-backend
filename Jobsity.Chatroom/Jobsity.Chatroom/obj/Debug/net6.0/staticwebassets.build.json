@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eMQy2SRG57i4JABNCE1Uo8JbC1AkorTGugST23l0ebo=",
+  "Hash": "da1QPUd87ARr9qj6R4BvpSQO1XXqTmGhFGXkgKvRGws=",
   "Source": "Jobsity.Chatroom",
   "BasePath": "_content/Jobsity.Chatroom",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "Jobsity.Common",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     }
   ],

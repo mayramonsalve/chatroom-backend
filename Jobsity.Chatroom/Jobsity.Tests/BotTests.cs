@@ -1,5 +1,10 @@
+using CsvHelper;
 using Jobsity.Bot.Hubs;
+using Jobsity.Bot.Mappings;
+using Jobsity.Bot.Models;
 using Jobsity.Bot.RabbitMQ;
+using System.Globalization;
+using System.Net;
 
 namespace Jobsity.Tests
 {
@@ -19,7 +24,7 @@ namespace Jobsity.Tests
         public void ReadCSV_RightStock(string stock)
         {
             string result = _hub.GetCSV(stock);
-            string val = "156.9";
+            string val = GetStockValue(stock);
 
             Assert.Equal(string.Format("{0} quote is ${1} per share.", stock.ToUpper(), val), result);
         }
@@ -43,5 +48,20 @@ namespace Jobsity.Tests
             Assert.Equal(string.Format("Stock code '{0}' doesn't exist. Please, try again.", stock), result);
         }
 
+
+        public string GetStockValue(string stockCode)
+        {
+            string url = "https://stooq.com/q/l/?s=" + stockCode + "&f=sd2t2ohlcv&h&e=csv";
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+
+            using (var reader = new StreamReader(resp.GetResponseStream()))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Context.RegisterClassMap<CVSFileMap>();
+                var record = csv.GetRecords<CSVFile>().FirstOrDefault();
+                return record.Close;
+            }
+        }
     }
 }

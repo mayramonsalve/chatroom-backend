@@ -1,6 +1,6 @@
 ﻿using Jobsity.Chatroom.Models;
 
-namespace Jobsity.Chatroom.Services
+namespace Jobsity.Chatroom.Interfaces
 {
     public interface IMessageService
     {

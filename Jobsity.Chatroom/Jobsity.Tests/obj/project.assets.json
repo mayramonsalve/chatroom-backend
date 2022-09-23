@@ -7682,6 +7682,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CsvHelper >= 28.0.1",
       "Jobsity.Bot >= 1.0.0",
       "Jobsity.Chatroom >= 1.0.0",
       "Microsoft.AspNet.SignalR.Core >= 2.4.3",
@@ -7743,6 +7744,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[28.0.1, )"
+          },
           "Microsoft.AspNet.SignalR.Core": {
             "target": "Package",
             "version": "[2.4.3, )"

@@ -1,6 +1,6 @@
 using Jobsity.Chatroom.DTOs;
 using Jobsity.Chatroom.Hubs;
-using Jobsity.Chatroom.Services;
+using Jobsity.Chatroom.Interfaces;
 using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using Moq;
@@ -28,15 +28,15 @@ namespace Jobsity.Tests
                                                                     }  };
             _users = new List<string>() { "Jobsity", "TestUser", "Mayra" };
             _messageService = null;
-            List<string> groupIds = new List<string>()
-            {
-                Guid.NewGuid().ToString(),
-                Guid.NewGuid().ToString(),
-            };
-            List<string> clientIds = new List<string>() { "1", "2", "3" };
+            //List<string> groupIds = new List<string>()
+            //{
+            //    Guid.NewGuid().ToString(),
+            //    Guid.NewGuid().ToString(),
+            //};
+            //List<string> clientIds = new List<string>() { "1", "2", "3" };
 
             _mockClients = new Mock<IHubCallerClients>();
-            _mockGroups = new Mock<IGroupManager>();// new Mock<IClientContract>();
+            //_mockGroups = new Mock<IGroupManager>();// new Mock<IClientContract>();
             _mockClientProxy = new Mock<IClientProxy>();
             _mockClientContext = new Mock<HubCallerContext>();
             _mockClients.Setup(c => c.Group("Test Group")).Returns(_mockClientProxy.Object);
@@ -50,46 +50,46 @@ namespace Jobsity.Tests
             _hub = new ChatHub(_messageService, _connections, _users)
             {
                 Clients = _mockClients.Object,
-                Context = _mockClientContext.Object,
-                Groups = new Mock<IGroupManager>().Object
+                Context = _mockClientContext.Object//,
+                //Groups = new Mock<IGroupManager>().Object
             };
-            _hub.Groups.AddToGroupAsync(connectionId, "Test Group");
+            //_hub.Groups.AddToGroupAsync(connectionId, "TestGroup");
         }
 
-        public interface IClientContract
-        {
-            void SendMessage(UserMessage userMessage);
-        }
+        //public interface IClientContract
+        //{
+        //    void SendMessage(UserMessage userMessage);
+        //}
 
-        [Fact]
-        public async Task Hub_SendMessage_ShouldReturn1Message()
-        {
-            await _hub.SendMessage(new UserMessage() { Message = "Test Message", Date = DateTime.Now });
+        //[Fact]
+        //public async Task Hub_SendMessage_ShouldReturn1Message()
+        //{
+        //    await _hub.SendMessage(new UserMessage() { Message = "TestMessage", Date = DateTime.Now });
 
-            _mockClients.Verify(clients => clients.All, Times.Once);
+        //    _mockClients.Verify(clients => clients.All, Times.Once);
 
-            _mockClientProxy.Verify(
-                clientProxy => clientProxy.SendCoreAsync(
-                    "ReceiveMessage",
-                    It.Is<object[]>(o => o != null && o.Length == 1),
-                    default(CancellationToken)),
-                Times.Once);
-        }
+        //    _mockClientProxy.Verify(
+        //        clientProxy => clientProxy.SendCoreAsync(
+        //            "ReceiveMessage",
+        //            It.Is<object[]>(o => o != null && o.Length == 1),
+        //            default(CancellationToken)),
+        //        Times.Once);
+        //}
 
-        [Fact]
-        public async Task Hub_SendUsers_ShouldReturn1User()
-        {
-            await _hub.SendUsers("Test Room");
+        //[Fact]
+        //public async Task Hub_SendUsers_ShouldReturn1User()
+        //{
+        //    await _hub.SendUsers("TestRoom");
 
-            _mockClients.Verify(clients => clients.All, Times.Once);
+        //    _mockClients.Verify(clients => clients.All, Times.Once);
 
-            _mockClientProxy.Verify(
-                clientProxy => clientProxy.SendCoreAsync(
-                    "UsersInRoom",
-                    It.Is<object[]>(o => o != null && o.Length == 1),
-                    default(CancellationToken)),
-                Times.Once);
-        }
+        //    _mockClientProxy.Verify(
+        //        clientProxy => clientProxy.SendCoreAsync(
+        //            "UsersInRoom",
+        //            It.Is<object[]>(o => o != null && o.Length == 1),
+        //            default(CancellationToken)),
+        //        Times.Once);
+        //}
 
         [Fact]
         public async Task Welcome_ShouldReturn1Message1()

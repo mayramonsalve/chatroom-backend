@@ -1,6 +1,6 @@
 ﻿using Jobsity.Chatroom.DTOs;
+using Jobsity.Chatroom.Interfaces;
 using Jobsity.Chatroom.Models;
-using Jobsity.Chatroom.Services;
 using Jobsity.Common.Models;
 using Microsoft.AspNetCore.SignalR;
 

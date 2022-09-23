@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jobsity.Auth</name>
+    </assembly>
+    <members>
+        <member name="M:Jobsity.Auth.Controllers.AccountController.Register(Jobsity.Auth.DTOs.RegisterDTO)">
+            <summary>
+            Register.
+            </summary>
+            <param name="registerDTO">Account information</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jobsity.Auth.Controllers.AccountController.SignIn(Jobsity.Auth.DTOs.SignInDTO)">
+            <summary>
+            Sign in.
+            </summary>
+            <param name="signInDTO">Sign in information</param>
+            <returns></returns>
+        </member>
+        <member name="M:Jobsity.Auth.Controllers.AccountController.SignOut">
+            <summary>
+            Sign out.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

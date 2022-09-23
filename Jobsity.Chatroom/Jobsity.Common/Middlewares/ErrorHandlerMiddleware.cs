@@ -42,13 +42,6 @@ namespace Jobsity.Common.Middlewares
 
             var result = JsonSerializer.Serialize(new { message = exception?.Message });
             await response.WriteAsync(result);
-
-            //context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            //await context.Response.WriteAsync(new ErrorDetails()
-            //{
-            //    StatusCode = context.Response.StatusCode,
-            //    Message = "Internal Server Error. There was an unhandled issue. Please try again."
-            //}.ToString());
         }
     }
 }

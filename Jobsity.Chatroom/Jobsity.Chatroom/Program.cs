@@ -1,5 +1,6 @@
 using Jobsity.Chatroom.DTOs;
 using Jobsity.Chatroom.Hubs;
+using Jobsity.Chatroom.Interfaces;
 using Jobsity.Chatroom.Models;
 using Jobsity.Chatroom.RabbitMQ;
 using Jobsity.Chatroom.Services;
